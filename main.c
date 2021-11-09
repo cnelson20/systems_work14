@@ -9,7 +9,9 @@
 static void sighandler(int sig) {
 	switch (sig) {
 	case SIGINT:
-		int fd = open("error.log", O_WRONLY | O_CREAT | O_APPEND, 0644);
+		;
+		int fd;
+		fd  = open("error.log", O_WRONLY | O_CREAT | O_APPEND, 0644);
 		if (fd == -1) {printf("%s\n",strerror(errno));}
 		int b = write(fd,"Process terminated by SIGINT\n",strlen("Process terminated by SIGINT\n"));
 		if (b == -1) {printf("%s\n",strerror(errno));}
